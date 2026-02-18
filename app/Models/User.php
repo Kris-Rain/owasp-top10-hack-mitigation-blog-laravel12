@@ -46,11 +46,18 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function isAdmin(){
-        return $this->is_admin==1 ? true : false;
+    public function isAdmin()
+    {
+        return $this->is_admin == 1 ? true : false;
     }
 
-    public function articles(){
+    public function articles()
+    {
         return $this->hasMany(Article::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
     }
 }
